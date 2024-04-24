@@ -1,0 +1,13 @@
+{% extends "layout.jinja" %}
+{% block content %}
+    <div class="container_results">
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="data:;base64,{{user.image}}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+        </div>
+      </div>
+    </div>
+    </div>
+{% endblock content %}

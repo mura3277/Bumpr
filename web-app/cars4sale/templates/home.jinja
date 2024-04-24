@@ -1,0 +1,10 @@
+{% extends "layout.jinja" %}
+{% block content %}
+<div class="container_results">
+    <div class="content-section">
+      <h1 class="title"> We make buying a car easy even for first-timers </h1>
+      <a class="btn btn-info btn-lg" style="width: 49%" href="{{ url_for('search_adv') }}" >I know what I want</a>
+      <a class="btn btn-info btn-lg" style="width: 49%" href="{{ url_for('search_simple') }}" >I'm not sure</a>
+    </div>
+</div>
+{% endblock content %}

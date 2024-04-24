@@ -1,0 +1,27 @@
+{% extends "layout.jinja" %}
+{% block content %}
+<div class="container_results">
+    <div class="content-section">
+    <h2>Messages For {{current_user.username}}</h2>
+    {% for msg in messages %}
+        <section class="search-result-item">
+            <a class="image-link rounded-circle" href="#"><img class="image" src="data:;base64,{{msg.author.image}}">
+            </a>
+            <div class="search-result-item-body">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h3 class="search-result-item-heading">{{msg.body}}<a href="#"></a>
+                        <h4 class="search-result-item-heading">{{msg.author.username}}<a href="#"></a>
+                        <p class="info">{{msg.timestamp}}</p>
+                        <p class="description">{{msg.body}}</p>
+                    </div>
+                    <div class="col-sm-3 text-align-center">
+                        <a class="btn btn-primary btn-info btn-sm" href="{{ url_for('send_message', recipient=msg.author.id, subject=msg.subject) }}">Reply</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endfor %}
+    </div>
+</div>
+{% endblock content %}

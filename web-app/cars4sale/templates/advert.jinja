@@ -1,0 +1,29 @@
+{% extends "layout.jinja" %}
+{% block content %}
+<div class="container_results">
+    <div class="content-section">
+        <div class="card advert p-3 bg-white">
+            <h4>{{advert.vehicle.brand}} {{advert.vehicle.model}}</h4>
+            <h6 class="desc mt-0 text-black-50">{{advert.description}}</h6>
+            <div class="stats mt-2">
+                <div class="d-flex justify-content-between p-price"><span>User:</span><span>{{advert.author.username}}</span></div>
+                <div class="d-flex justify-content-between p-price"><span>Posted:</span><span>{{advert.date_posted}}</span></div>
+                <div class="d-flex justify-content-between p-price"><span>Year:</span><span>{{advert.year}}</span></div>
+                <div class="d-flex justify-content-between p-price"><span>Mileage:</span><span>{{advert.mileage}}</span></div>
+                <div class="d-flex justify-content-between p-price"><span>Transmission:</span><span>{{advert.vehicle.transmission}}</span></div>
+                <div class="d-flex justify-content-between p-price"><span>Drivetrain:</span><span>{{advert.vehicle.drive}}</span></div>
+                <div class="d-flex justify-content-between p-price"><span>Role:</span><span>{{advert.vehicle.role}}</span></div>
+            </div>
+            <div class="d-flex justify-content-between total font-weight-bold mt-4"><span>Asking Price:</span><span>£{{advert.price}}</span></div>
+            <a class="btn btn-primary btn-info btn-sm" href="{{ url_for('send_message', recipient=advert.author.id, subject=advert.vehicle.model) }}">Send Message</a>
+        </div>
+    </div>
+    <div class="content-section">
+        <div class="grid">
+            {% for i in images %}
+                <div class="box" style="background-image: url(data:image/png;base64,{{i}})"></div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

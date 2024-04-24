@@ -1,0 +1,17 @@
+{
+  "name": "bumpr",
+  "displayName": "bumpr",
+  "expo": {
+    "name": "bumpr",
+    "slug": "bumpr",
+    "owner": "behr",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.bravo.Cars4Sale",
+      "versionCode": 1
+    }
+  }
+}

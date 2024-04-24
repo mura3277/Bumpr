@@ -1,0 +1,30 @@
+{% extends "layout.jinja" %}
+{% block content %}
+  <div class="container_inside">
+    <div class="content-section">
+    {% for i in results %}
+        <section class="search-result-item">
+            <a class="image-link" href="#"><img class="image" src="data:;base64,{{i.main_image}}">
+            </a>
+            <div class="search-result-item-body">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h4 class="search-result-item-heading">{{i.vehicle.brand}} {{i.vehicle.model}}<a href="#"></a>
+                        <p class="info">{{i.date_posted}}</p>
+                        <p class="description">{{i.description}}</p>
+                    </div>
+                    <div class="col-sm-3 text-align-center">
+                        <p class="value3 mt-sm">£{{i.price}}</p>
+                        <p class="fs-mini text-muted">{{i.mileage}} miles</p>
+                        <a class="btn btn-primary btn-info btn-sm" href="{{ url_for('advert', advert_id = i.id) }}">View</a>
+                        {% if current_user.is_authenticated %}
+                            <a class="btn btn-primary btn-info btn-sm" href="{{ url_for('update_advert', advert_id = i.id) }}">Edit</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endfor %}
+    </div>
+</div>
+{% endblock content %}

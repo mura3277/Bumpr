@@ -1,0 +1,2 @@
+# ml-model
+To retrieve the desired YOLO model files. Run ml/fetchData.py from the main directory and store the resultant model files in here. To do this you will need to supplant a kaggle api username and key in the fetchData.py file.
